@@ -1,20 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/signup.css";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
 
-  const handlePhone = () => {
-    navigate("/signup-phone");
+  const [formData, setFormData] = useState({
+    day: "",
+    month: "",
+    year: "",
+    email: "",
+    password: "",
+    otp: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleLogin = () => {
-    navigate("/signin");
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
-  const handleProfile = () => {
-    navigate("/complete-profile");
+    const payload = {
+      dateOfBirth: `${formData.year}-${formData.month}-${formData.day}`,
+      email: formData.email,
+      password: formData.password,
+      otp: formData.otp,
+    };
+
+    console.log("Payload being sent:", payload);
+
+    try {
+      const response = await fetch(
+        "https://new-cura.onrender.com/api/patients/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error response from server:", errorData);
+        throw new Error(
+          errorData.message || "Failed to sign up. Please try again."
+        );
+      }
+
+      const data = await response.json();
+      console.log("Signup successful:", data);
+      alert("Signup successful!");
+      navigate("/complete-profile");
+    } catch (err) {
+      console.error("Error details:", err);
+      setError(err.message || "An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -29,7 +83,7 @@ const SignUp = () => {
             </div>
           </div>
           <h3 className="title">Sign Up</h3>
-          <form>
+          <form onSubmit={handleSubmit}>
             <fieldset>
               <legend>When is your birthday?</legend>
               <div className="dob">
@@ -40,9 +94,16 @@ const SignUp = () => {
                   min="1"
                   max="31"
                   placeholder="Day"
+                  value={formData.day}
+                  onChange={handleChange}
                 />
-                <select id="monthInput" name="month">
-                  <option value="" selected disabled>
+                <select
+                  id="monthInput"
+                  name="month"
+                  value={formData.month}
+                  onChange={handleChange}
+                >
+                  <option value="" disabled>
                     Month
                   </option>
                   <option value="1">January</option>
@@ -65,6 +126,8 @@ const SignUp = () => {
                   min="1900"
                   max="2100"
                   placeholder="Year"
+                  value={formData.year}
+                  onChange={handleChange}
                 />
               </div>
               <p className="undertext">
@@ -73,32 +136,42 @@ const SignUp = () => {
             </fieldset>
             <div className="email-tag">
               <label htmlFor="email">Email</label>
-              <p onClick={handlePhone}>Sign up with Phone</p>
+              <p onClick={() => navigate("/signup-phone")}>
+                Sign up with Phone
+              </p>
             </div>
             <input
               type="email"
               id="email"
               name="email"
               placeholder="Email address"
+              value={formData.email}
+              onChange={handleChange}
             />
             <input
               type="password"
               id="password"
               name="password"
               placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
             />
             <input
               type="number"
               id="otp"
               name="otp"
               placeholder="Enter 6 digit code"
+              value={formData.otp}
+              onChange={handleChange}
             />
-            <button type="submit" onClick={handleProfile}>
-              Next
+            <button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Next"}
             </button>
           </form>
+          {error && <p className="error">{error}</p>}
           <p className="login-text">
-            Already have an account? <span onClick={handleLogin}>Log in</span>
+            Already have an account?{" "}
+            <span onClick={() => navigate("/signin")}>Log in</span>
           </p>
         </section>
       </section>
