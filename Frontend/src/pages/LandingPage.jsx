@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/landingpage.css";
 import logoSymbol from "/src/assets/LogoSymbol.svg";
-import textLogo from "/src/assets/TextLogo.svg";
+import textLogo from "/src/assets/textlogo.svg";
 import scribbling from "/src/assets/scribbling.svg";
 import banner from "/src/assets/BannerPicture.svg";
 import vector from "/src/assets/vector.svg";

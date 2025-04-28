@@ -1,0 +1,52 @@
+services:
+  curamap-frontend:
+    container_name: curamap-frontend
+    build: ./Frontend
+    depends_on:
+      - curamap-backend
+    restart: "always"
+    environment:
+      - BACKEND_APP_API_URL=${BACKEND_APP_API_URL}
+    ports:
+      - 80:80
+    networks:
+      - curamap-network
+    
+
+  curamap-backend:
+    container_name: curamap-backend
+    build: ./Backend
+    depends_on:
+      - curamap-db
+    restart: "always"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+    ports:
+      - 5000:5000
+    networks:
+      - curamap-network
+
+
+  curamap-db:
+    container_name: curamap-db
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+    ports:
+      - ${MONGODB_EXTERNAL_PORT}:27017
+    networks:
+      - curamap-network
+    volumes:
+      - mongo-db:/data/db
+
+
+volumes:
+  mongo-data:
+
+
+networks:
+  curamap-network:
+    name: curamap-network
+    driver: bridge
