@@ -14,14 +14,15 @@ app.use(express.json());
 app.use(cookieParser()); // <-- Add cookie-parser middleware
 
 // Configure CORS options
+
 const corsOptions = {
   origin: process.env.ALLOWED_ORIGIN || "http://localhost:3000",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Allow cookies to be sent/received
+  credentials: true,
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Routes
 app.use("/api/pharmacies", pharmacyRoutes);
