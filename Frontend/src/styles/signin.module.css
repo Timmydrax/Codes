@@ -53,6 +53,7 @@
   font-size: 18px;
   border: 1.5px solid #000;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .options {
@@ -86,7 +87,9 @@
 
 .signinButton {
   background: transparent;
+  margin-bottom: 20px;
 }
+
 .signinButton:hover,
 .googleButton:hover {
   background: #83c0b9;
