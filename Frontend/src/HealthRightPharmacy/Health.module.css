@@ -39,7 +39,7 @@
 
 .button{
     background-color:rgb(180, 175, 175) ; 
-     color: black;
+     color: rgb(13, 13, 13);
     padding: 10px 20px;
     border-radius: 10px;
     font-size: 15px;
