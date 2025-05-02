@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Candal&family=Domine:wght@400..700&family=Island+Moments&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); 
+
+.pharmacyContainer{
+    width: 800px;
+    height: 90vh;
+    background-color: white;
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 50px;
+    
+    
+}
+
+ .mainContainer{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+   
+    
+}
+
+.mainContainer div p{
+    font-size: 30px;
+    font-weight: 700;
+    font: "inter" sans-serif;
+    color: rgba(57, 155, 144, 1);
+      
+}
+.paragraph{
+    padding-top: 50px;
+}
+
+.curamp{
+    line-height: 7.0
+}
+.secondmain {
+   padding: 15px;
+}
+
+.button{
+    background-color:rgb(180, 175, 175) ; 
+     color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "inter" sans-serif;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    
+}
+
+.thirdmain{
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+}

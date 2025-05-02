@@ -7,6 +7,7 @@ import FindMeds from "./pages/FindMeds";
 import TransactionSuccess from "./pages/TransactionSuccess";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import OtpPage from "./pages/OtpPage";
+import HealthRightPharmacy from "./HealthRightPharmacy/HealthRightPharmacy";
 
 import ProcessingPage from "./components/ProcessingPage";
 import PaymentModal from "./components/PaymentModal";
@@ -30,6 +31,7 @@ function App() {
       <Route path="/transactionsuccess" element={<TransactionSuccess />} />
       <Route path="/paymentsuccess" element={<PaymentSuccess />} />
       <Route path="/otppage" element={<OtpPage/>} />
+      <Route path="/healthrightpharmacy" element={<HealthRightPharmacy />}/>
 
       <Route path="/processing" element={<ProcessingPage />} />
 
