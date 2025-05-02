@@ -1,19 +1,16 @@
 import React from "react";
+import styles from "../../styles/dashboard.module.css";
 
-const DashboardCard = ({ title, value, subValue, chart }) => {
+const DashboardCard = () => {
   return (
-    <div className="dashboard-card">
-      <h4>{title}</h4>
-      {chart ? (
-        <div className="fake-chart">Chart Placeholder</div>
-      ) : (
-        <div>
-          <p className="main-value">{value}</p>
-          {subValue && <p className="sub-value">{subValue} Sold</p>}
-        </div>
-      )}
+    <div className={styles.dashboardCard}>
+      <h2>300</h2>
+      <p>Patients Attended</p>
+      {/* <label for="month">Month</label> */}
+      <input type="month" id="month" name="month" />
     </div>
   );
 };
 
 export default DashboardCard;
+

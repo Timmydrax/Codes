@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
-import SignUp from "./components/forms/SignUp";
-import SignIn from "./components/forms/SignIn";
+import { Suspense, lazy } from "react";
+import { useState } from "react";
 
-import FindMeds from "./pages/FindMeds";
+// Components
+import LandingPage from "./pages/LandingPage";
+import SignIn from "./components/forms/SignIn";
+import Newsignup from "./components/forms/Newsignup";
 import TransactionSuccess from "./pages/TransactionSuccess";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import OtpPage from "./pages/OtpPage";
@@ -11,53 +13,128 @@ import HealthRightPharmacy from "./HealthRightPharmacy/HealthRightPharmacy";
 
 import ProcessingPage from "./components/ProcessingPage";
 import PaymentModal from "./components/PaymentModal";
-
-// import FindMeds from "./pages/FindMeds";
-import SearchPage from "./pages/SearchPage";
-import SearchpageSummary from "./pages/SearchpageSummary";
-import UpdatedCart from "./pages/UpdatedCart";
-import { useState } from "react";
+import OrderSummary from "./pages/OrderSummary";
 import ProfileSignup from "./pages/ProfileSignup";
+import FindMedsLoading from "./components/FindMedsLoading";
+import UpdatedCart from "./pages/UpdatedCart";
+import PhamarcySignUp from "./components/forms/PhamarcySignUp";
+
+// Code splitted Components (Lazy Loading)...
+// N.B- Please do not touch if you're new to how lazy loading works..
+
+const SignUp = lazy(() => import("./components/forms/SignUp"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const PharmacistProfile = lazy(() => import("./pages/PharmacistProfile"));
+const SearchPage = lazy(() => import("./pages/SearchPage"));
+const SearchpageSummary = lazy(() => import("./pages/SearchpageSummary"));
+const PharmacySelection = lazy(() => import("./pages/PharmacySelection"));
 
 function App() {
   const [selectedMedicines, setSelectedMedicines] = useState([]);
+  const [pharmacy, setPharmacy] = useState([]);
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/signin" element={<SignIn />} />
+    
+    <Suspense
+      fallback={
+        <section
+          style={{
+            display: "flex",
+            flexDirection: "flex-row",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            minHeight: "100vh",
+            backgroundColor: "#FFF",
+          }}
+        >
+          <p style={{ fontWeight: "bold", color: "#399b90" }}>
+            Loading page...
+          </p>
+        </section>
+      }
+    >
+      <Routes>
+        {/* Patients Routing */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup-phone" element={<Newsignup />} />
+        <Route path="/signup-email" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
 
-      <Route path="" element={<FindMeds />} />
-      <Route path="/transactionsuccess" element={<TransactionSuccess />} />
-      <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-      <Route path="/otppage" element={<OtpPage/>} />
-      <Route path="/healthrightpharmacy" element={<HealthRightPharmacy />}/>
+        <Route path="/transaction-success" element={<TransactionSuccess />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/otp-page" element={<OtpPage />} />
 
-      <Route path="/processing" element={<ProcessingPage />} />
+        <Route path="/processing" element={<ProcessingPage />} />
 
-      <Route path="/paymentmodal" element={<PaymentModal />} />
+        <Route path="/payment-modal" element={<PaymentModal />} />
 
-      <Route
-        path="/findmeds"
-        element={
-          <SearchPage
-            selectedMedicines={selectedMedicines}
-            setSelectedMedicines={setSelectedMedicines}
-          />
-        }
-      />
-      <Route
-        path="/search-summary"
-        element={
-          <SearchpageSummary
-            selectedMedicines={selectedMedicines}
-            setSelectedMedicines={setSelectedMedicines}
-          />
-        }
-      />
-      <Route path="/updatedcart" element={<UpdatedCart />} />
-      <Route path="/complete-profile" element={<ProfileSignup />} />
-    </Routes>
+        <Route
+          path="/findmeds"
+          element={
+            <SearchPage
+              selectedMedicines={selectedMedicines}
+              setSelectedMedicines={setSelectedMedicines}
+            />
+          }
+        />
+        <Route
+          path="/search-summary"
+          element={
+            <SearchpageSummary
+              selectedMedicines={selectedMedicines}
+              setSelectedMedicines={setSelectedMedicines}
+            />
+          }
+        />
+
+        <Route path="/findmeds-loading" element={<FindMedsLoading />} />
+
+        <Route
+          path="/pharmacy-selection"
+          element={
+            <PharmacySelection
+              selectedMedicines={selectedMedicines}
+              setSelectedMedicines={setSelectedMedicines}
+              pharmacy={pharmacy}
+              setPharmacy={setPharmacy}
+            />
+          }
+        />
+
+        <Route
+          path="/updated-cart"
+          element={
+            <UpdatedCart
+              selectedMedicines={selectedMedicines}
+              setSelectedMedicines={setSelectedMedicines}
+              pharmacy={pharmacy}
+              setPharmacy={setPharmacy}
+            />
+          }
+        />
+
+        <Route
+          path="/order-summary"
+          element={
+            <OrderSummary
+              selectedMedicines={selectedMedicines}
+              setSelectedMedicines={setSelectedMedicines}
+              pharmacy={pharmacy}
+              setPharmacy={setPharmacy}
+            />
+          }
+        />
+
+        <Route path="/complete-profile" element={<ProfileSignup />} />
+        <Route path="/health-right-pharmacy" element={<HealthRightPharmacy />}/>
+
+        {/* Pharmacy Routing */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/pharmacist-profile" element={<PharmacistProfile />} />
+        <Route path="/pharmacy-signup" element={<PhamarcySignUp />} />
+        <Route path="/medicine-table" element={<MedicineTable />} />
+      </Routes>
+    </Suspense>
   );
 }
 

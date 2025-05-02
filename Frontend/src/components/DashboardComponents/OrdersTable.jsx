@@ -1,20 +1,22 @@
-import React from 'react'
+import React from "react";
+import styles from "../../styles/dashboard.module.css";
 
 const orders = [
-    { name: 'John Doe', date: '10/02/2025', status: 'Pending' },
-    { name: 'Bryan Stan', date: '10/02/2025', status: 'Pending' },
-    { name: 'Doyin Micheal', date: '09/02/2025', status: 'Pending' },
-    { name: 'Rose Daniel', date: '08/02/2025', status: 'Picked-up' },
-  ];
-  
-  const OrdersTable = () => {
-    return (
-      <div className="orders-table">
+  { name: "John Doe", date: "10/02/2025", status: "Pending" },
+  { name: "Bryan Stan", date: "10/02/2025", status: "Pending" },
+  { name: "Doyin Micheal", date: "09/02/2025", status: "Pending" },
+  { name: "Rose Daniel", date: "08/02/2025", status: "Picked-up" },
+];
+
+const OrdersTable = () => {
+  return (
+    <div className={styles.tableWrap}>
+      <div className={styles.table}>
         <h3>Latest Orders</h3>
         <table>
           <thead>
             <tr>
-              <th className="table-head">Name</th>
+              <th className={styles.tableHead}>Name</th>
               <th>Date</th>
               <th>Status</th>
             </tr>
@@ -30,7 +32,8 @@ const orders = [
           </tbody>
         </table>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default OrdersTable;

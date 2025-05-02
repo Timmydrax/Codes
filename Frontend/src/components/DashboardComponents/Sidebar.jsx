@@ -1,22 +1,25 @@
 import React from "react";
+import logoSymbol from "/src/assets/LogoSymbol.svg";
+import styles from "../../styles/dashboard.module.css";
 
 const Sidebar = () => {
   return (
-    <aside className="sidebar">
-      <div className="logo">
-        <img src="./src/assets/LogoSymbol.svg" alt="logo symbol" />
+    <aside className={styles.sidebar}>
+      <div className={styles.logo}>
+        <img src={logoSymbol} alt="logo symbol" />
+        <h4>Curamap</h4>
       </div>
       <nav>
-        <ul className="sidebar-list">
+        <ul className={styles.sidebarList}>
           <li>
             <a href="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill="currentColor"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="icon"
+                className={styles.icon}
               >
                 <path
                   strokeLinecap="round"
@@ -31,11 +34,11 @@ const Sidebar = () => {
             <a href="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill="currentColor"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="icon"
+                className={styles.icon}
               >
                 <path
                   strokeLinecap="round"
@@ -50,11 +53,11 @@ const Sidebar = () => {
             <a href="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill="currentColor"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="icon"
+                className={styles.icon}
               >
                 <path
                   strokeLinecap="round"
@@ -73,7 +76,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="icon"
+                className={styles.icon}
               >
                 <path
                   strokeLinecap="round"
@@ -86,16 +89,16 @@ const Sidebar = () => {
           </li>
         </ul>
 
-        <ul className="sidebar-list sidebar-footer">
+        <ul className={`${styles.sidebarList} ${styles.sidebarFooter}`}>
           <li>
             <a href="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill="currentColor"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="icon"
+                className={styles.icon}
               >
                 <path
                   strokeLinecap="round"
@@ -119,7 +122,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="icon"
+                className={styles.icon}
               >
                 <path
                   strokeLinecap="round"

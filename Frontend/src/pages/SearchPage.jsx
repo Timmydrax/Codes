@@ -6,7 +6,7 @@ import MedicineCard from "../components/MedicineCard";
 import SearchpageSummary from "./SearchpageSummary";
 import "../styles/searchpage.css";
 import brandlogo from "../assets/brandlogo.svg";
-import avatar from "../assets/avatar.svg";
+import avatar from "../assets/Avatar.svg";
 
 const SearchPage = ({ selectedMedicines, setSelectedMedicines }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -87,19 +87,6 @@ const SearchPage = ({ selectedMedicines, setSelectedMedicines }) => {
       alert("Please select at least one medicine");
       return;
     }
-
-    // Prepare the data for submission
-    // const submissionData = selectedMedicines.map((medicine) => ({
-    //   id: medicine.id,
-    //   name: medicine.name,
-    //   dosage: medicine.selectedDosage,
-    //   description: medicine.description,
-    //   packageSize: medicine.selectedPackageSize,
-    //   quantity: medicine.quantity,
-    //   prescription: medicine.prescription || false,
-    //   price:
-    //     medicine.prices[medicine.selectedDosage][medicine.selectedPackageSize],
-    // }));
 
     const submissionData = selectedMedicines.map((medicine) => {
       const calculatedPrice =
@@ -191,7 +178,7 @@ const SearchPage = ({ selectedMedicines, setSelectedMedicines }) => {
           className="submit-btn"
           disabled={selectedMedicines.length === 0}
         >
-          Find Med
+          Find ({selectedMedicines.length}) Med
         </button>
       </footer>
     </div>

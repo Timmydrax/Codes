@@ -1,23 +1,44 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/landingpage.css";
+import logoSymbol from "/src/assets/LogoSymbol.svg";
+import textLogo from "/src/assets/TextLogo.svg";
+import scribbling from "/src/assets/scribbling.svg";
+import banner from "/src/assets/BannerPicture.svg";
+import vector from "/src/assets/vector.svg";
+import padlock from "/src/assets/padlock.svg";
+import heartImage from "/src/assets/Thirdlevelimg.svg";
+import tablets from "/src/assets/card-1-img.svg";
+import tabletImage from "/src/assets/card-2-img.svg";
+import contactChannel from "/src/assets/contactchannels.svg";
+import tabletImageThree from "/src/assets/card-3-img.svg";
+import clientPic from "/src/assets/clientpic1.svg";
+import clientPicTwo from "/src/assets/clientpic2.svg";
+import clientPicThree from "/src/assets/clientpic3.svg";
+import forPatients from "/src/assets/forpatients.svg";
+import pharmaCare from "/src/assets/phamacare.svg";
+import colorbuttons from "/src/assets/colorbuttons.svg"
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate("/signup");
+    navigate("/signup-phone");
   };
 
   const handleLogin = () => {
     navigate("/signin");
   };
 
+  const handleMedication = () => {
+    navigate("/findmeds")
+  }
+
   return (
     <div className="landing-page-container">
       <div className="Logo">
-        <img src="./src/assets/LogoSymbol.svg" alt="logo symbol" />
-        <img src="./src/assets/TextLogo.svg" alt="curamap logo" />
+        <img src={logoSymbol} alt="logo symbol" />
+        <img src={textLogo} alt="curamap logo" />
       </div>
 
       <div className="MainContent">
@@ -27,7 +48,7 @@ const LandingPage = () => {
             <br />
             Mapped In a click.
           </h1>
-          <img src="./src/assets/scribbling.svg" alt="scribbling" />
+          <img src={scribbling} alt="scribbling" />
           <p>
             We are here to make Healthcare simple and accessible,empowering you
             <br />
@@ -35,11 +56,11 @@ const LandingPage = () => {
           </p>
           <div className="Buttons">
             <button onClick={handleSignUp}>Sign Up</button>
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin}>Sign In</button>
           </div>
         </div>
 
-        <img src="./src/assets/BannerPicture.svg" alt="Banner picture" />
+        <img src={banner} alt="Banner picture" />
       </div>
       <div className="second-level-content">
         <h2>Connecting Patients to Pharmacies For Easy Medication Access.</h2>
@@ -53,7 +74,7 @@ const LandingPage = () => {
         </p>
         <div className="Benefits">
           <div>
-            <img src="./src/assets/vector.svg" alt="vector svg image" />
+            <img src={vector} alt="vector svg image" />
             <div className="benefit-text first-benefits">
               <span className=" benefit-text-container">
                 <h3>Speed and Accessibility</h3>
@@ -62,7 +83,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="benefit-text second-benefits">
-            <img src="./src/assets/padlock.svg" alt="vector svg image" />
+            <img src={padlock} alt="vector svg image" />
             <span className="benefit-text-container">
               <h3>Trust & Security</h3>
               <p>
@@ -93,9 +114,9 @@ const LandingPage = () => {
             With Confidence-experience ,Fast safe and Reliable Access to
             Medication With Curamap
           </p>
-          <button>Browse Medications</button>
+          <button onClick={handleMedication}>Browse Medications</button>
         </div>
-        <img src="./src/assets/Thirdlevelimg.svg" alt="heart image" />
+        <img src={heartImage} alt="heart image" />
       </div>
 
       <div className="fourth-level-content">
@@ -103,7 +124,7 @@ const LandingPage = () => {
         <div className="card-container">
           <div className="card card-1">
             <div className="card-1-img-container">
-              <img src="./src/assets/card-1-img.svg" alt="Tablets image" />
+              <img src={tablets} alt="Tablets image" />
             </div>
 
             <div className="card-text-section card-text-section-1">
@@ -121,7 +142,7 @@ const LandingPage = () => {
           </div>
           <div className="card card-2">
             <div className="card-2-img-container">
-              <img src="./src/assets/card-2-img.svg" alt="Tablets image" />
+              <img src={tabletImage} alt="Tablets image" />
             </div>
 
             <div className="card-text-section">
@@ -131,14 +152,17 @@ const LandingPage = () => {
               </span>
               <span className="Drug-price">
                 <h4>Contact Channels</h4>
-                <img src="./src/assets/contactchannels.svg" alt="" />
+                <img src={contactChannel} alt="contact channel" />
               </span>
             </div>
           </div>
           <div className="card card-3">
-            {" "}
+            <h3>
+              Your Medication
+              <br /> is Ready For Pick-up
+            </h3>{" "}
             <div className="card-3-img-container">
-              <img src="./src/assets/card-3-img.svg" alt="Tablets image" />
+              <img src={tabletImageThree} alt="Tablets image" />
             </div>
           </div>
         </div>
@@ -175,12 +199,12 @@ const LandingPage = () => {
           <div className="testimonial-card card-4">
             <div className="profile">
               <div className="image-container">
-                <img src="./src/assets/clientpic1.svg" alt="" />
+                <img src={clientPic} alt="illutration" />
               </div>
               <h3>Wale</h3>
             </div>
             <p>
-              curamaphas completely Transformed how i managemy prescription.As
+              curamap has completely Transformed how i managemy prescription.As
               someone With a Hectic Schedule, The One-click Delivery Option is a
               Game-Changer.My Meds Arrive Quickly
             </p>
@@ -189,7 +213,7 @@ const LandingPage = () => {
           <div className="testimonial-card card-5">
             <div className="profile">
               <div className="image-container">
-                <img src="./src/assets/clientpic2.svg" alt="" />
+                <img src={clientPicTwo} alt="illustration two" />
               </div>
               <h3>Vivian</h3>
             </div>
@@ -205,7 +229,7 @@ const LandingPage = () => {
           <div className="testimonial-card card-6">
             <div className="profile">
               <div className="image-container">
-                <img src="./src/assets/clientpic3.svg" alt="" />
+                <img src={clientPicThree} alt="illustration three" />
               </div>
 
               <h3>Matt</h3>
@@ -219,29 +243,103 @@ const LandingPage = () => {
             </p>
           </div>
         </div>
+
+        <div className="colorbuttons-container"> <img src={colorbuttons} alt="color buttons" /></div>
       </div>
 
       <div className="sixth-level-content">
-<h2>Get Started with Curamap</h2>
+        <h2>Get Started with Curamap</h2>
 
-<div className="portal portal-for-patients">
-  <button>For Patients</button>
-  <div>
-<img src="./src/assets/forpatients.svg" alt="" />
-  </div>
-  <button>Sign up</button>
-</div>
+        <div className="cards-container">
+          <div className="card-con">
+            <span className="heading">For Patients</span>
+            <div className="portal portal-for-patients">
+              <div className="patients-portal-card">
+                <div className="patients-portal-card-img-container">
+                  <img src={forPatients} alt="patients picture" />
+                </div>
+                <div className="patients-portal-card-text">
+                  <h3>Easy Access to Medications</h3>
+                  <p>
+                    Order your Medication and Healthcare Solutions With Ease
+                  </p>
+                  <button>Sign up</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div className="portal portal-for-pharmacy">
-  <button>For Pharmacies</button>
-  <div>
-<img src="./src/assets/phamacare.svg" alt="" />
-  </div>
-  <button>Sign up</button>
-</div>
+          <div className="card-con">
+            <span className="heading">For Pharmacies</span>
+            <div className="portal portal-for-pharmacy">
+              <div className="pharmacy-portal-card">
+                <div children="pharmacy-portal-card-img-container">
+                  <img src={pharmaCare} alt="pharma care" />
+                </div>
+                <div className="pharmacy-portal-card-text">
+                  <h3>Pharmaceutical Care</h3>
+                  <p>
+                    Transforming Nigerian Pharmaceutical <br />
+                    Healthcare Through Enhanced Pharmacy Fulfillment
+                  </p>
+                  <button>Partner with us</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      
+      <div className="seventh-level-content">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq">
+          <ul>
+            <li>What does Curamap do</li>
+            <li>How does Curamap Measure The Quality of its Service</li>
+            <li>Is my Data safe and confidential</li>
+            <li>can i order drugs for someone else ?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="eight-level-content">
+        <div className="column First-column">
+          <h3>
+            Copyright 2025 BRIX Templates <br />| All Rights Reserved
+          </h3>
+        </div>
+        <div className="column second-column">
+          <h3>Company</h3>
+          <ul>
+            <li>About</li>
+            <li>Contact us</li>
+            <li>Careers</li>
+            <li>Culture</li>
+            <li>Blog</li>
+          </ul>
+        </div>
+        <div className="column third-column">
+          <h3>Support</h3>
+          <ul>
+            <li>Getting Started</li>
+            <li>Help center</li>
+            <li>Server Status</li>
+            <li>Report a Bug</li>
+            <li>Chat support</li>
+          </ul>
+        </div>
+        <div className="column Fourth-column">
+          <h3>Follow us</h3>
+          <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+            <li>Linkdel</li>
+            <li>Youtube</li>
+          </ul>
+        </div>
+        <h4>Terms And Conditions | Privacy Policy</h4>
+      </div>
     </div>
   );
 };

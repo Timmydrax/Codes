@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/searchsummary.css";
-import UpdatedCart from "./UpdatedCart";
+import OrderSummary from "./OrderSummary";
 
 const SearchpageSummary = () => {
   const navigate = useNavigate();
@@ -14,14 +14,7 @@ const SearchpageSummary = () => {
   );
 
   const viewShoppingCart = () => {
-    navigate("/findmeds");
-  };
-
-  const continueShopping = () => {
-    // For now, we'll just show an alert
-    alert(`Continue shopping cart with ${medicineCount} medicines`);
-
-    navigate("/updatedcart", { state: { selectedMedicines } });
+    navigate("/findmeds", { state: { selectedMedicines } });
   };
 
   return (
@@ -61,7 +54,10 @@ const SearchpageSummary = () => {
           </button>
 
           <button
-            onClick={continueShopping}
+            onClick={() =>
+              navigate("/findmeds-loading", { state: { selectedMedicines } })
+            }
+            disabled={selectedMedicines.length === 0}
             className="summary-btn continue-btn"
           >
             Continue Shopping
