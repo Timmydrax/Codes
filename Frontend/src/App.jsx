@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { useState } from "react";
-
+   
 // Components
 import LandingPage from "./pages/LandingPage";
 import SignIn from "./components/forms/SignIn";
@@ -14,7 +14,7 @@ import HealthRightPharmacy from "./HealthRightPharmacy/HealthRightPharmacy";
 import ProcessingPage from "./components/ProcessingPage";
 import PaymentModal from "./components/PaymentModal";
 import OrderSummary from "./pages/OrderSummary";
-import ProfileSignup from "./pages/ProfileSignup";
+// import ProfileSignup from "./pages/ProfileSignup";
 import FindMedsLoading from "./components/FindMedsLoading";
 import UpdatedCart from "./pages/UpdatedCart";
 import PhamarcySignUp from "./components/forms/PhamarcySignUp";
@@ -125,7 +125,7 @@ function App() {
           }
         />
 
-        <Route path="/complete-profile" element={<ProfileSignup />} />
+
         <Route path="/health-right-pharmacy" element={<HealthRightPharmacy />}/>
 
         {/* Pharmacy Routing */}

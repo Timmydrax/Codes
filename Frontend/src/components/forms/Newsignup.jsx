@@ -72,7 +72,11 @@ const Newsignup = () => {
       console.log("Response:", response);
 
       if (!response.ok) {
-        throw new Error("Failed to sign up. Please try again.");
+        const errorData = await response.json();
+        console.error("Error response from server:", errorData);
+        throw new Error(
+          errorData.message || "Failed to sign up. Please try again."
+        );
       }
 
       const data = await response.json();
