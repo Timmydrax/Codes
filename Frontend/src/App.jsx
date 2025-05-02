@@ -128,6 +128,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pharmacist-profile" element={<PharmacistProfile />} />
         <Route path="/pharmacy-signup" element={<PhamarcySignUp />} />
+        <Route path="/medicine-table" element={<MedicineTable />} />
       </Routes>
     </Suspense>
   );
