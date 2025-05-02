@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import styles from  "../../styles/signin.module.css";
+import styles from "../../styles/signin.module.css";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
@@ -11,14 +11,12 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate("/signup-phone")
-  }
+    navigate("/signup-phone");
+  };
 
   const handleProfile = () => {
-    navigate("/complete-profile")
-  }
-
-
+    navigate("/findmeds");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,15 +65,24 @@ const SignIn = () => {
             <a href="/forgot-password">Forgot password?</a>
           </div>
 
-          <button type="submit" className={styles.signinButton} onClick={handleProfile}>
+          <button
+            type="submit"
+            className={styles.signinButton}
+            onClick={handleProfile}
+          >
             Sign in
           </button>
 
-          <button className={styles.googleButton}>Or sign in with Google</button>
+          <button className={styles.googleButton}>
+            Or sign in with Google
+          </button>
         </form>
 
         <p class={styles.signupText}>
-          Don't have an account? <a href="#" onClick={handleSignUp}>Sign up</a>
+          Don't have an account?{" "}
+          <a href="#" onClick={handleSignUp}>
+            Sign up
+          </a>
         </p>
       </div>
     </div>

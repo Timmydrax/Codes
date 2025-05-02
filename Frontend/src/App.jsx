@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { useState } from "react";
-   
+
 // Components
 import LandingPage from "./pages/LandingPage";
 import SignIn from "./components/forms/SignIn";
@@ -18,6 +18,7 @@ import OrderSummary from "./pages/OrderSummary";
 import FindMedsLoading from "./components/FindMedsLoading";
 import UpdatedCart from "./pages/UpdatedCart";
 import PhamarcySignUp from "./components/forms/PhamarcySignUp";
+import MedicineTable from "./components/MedicineTable";
 
 // Code splitted Components (Lazy Loading)...
 // N.B- Please do not touch if you're new to how lazy loading works..
@@ -33,7 +34,6 @@ function App() {
   const [selectedMedicines, setSelectedMedicines] = useState([]);
   const [pharmacy, setPharmacy] = useState([]);
   return (
-    
     <Suspense
       fallback={
         <section
@@ -125,8 +125,10 @@ function App() {
           }
         />
 
-
-        <Route path="/health-right-pharmacy" element={<HealthRightPharmacy />}/>
+        <Route
+          path="/health-right-pharmacy"
+          element={<HealthRightPharmacy />}
+        />
 
         {/* Pharmacy Routing */}
         <Route path="/dashboard" element={<Dashboard />} />
