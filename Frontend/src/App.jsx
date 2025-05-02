@@ -9,6 +9,8 @@ import Newsignup from "./components/forms/Newsignup";
 import TransactionSuccess from "./pages/TransactionSuccess";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import OtpPage from "./pages/OtpPage";
+import HealthRightPharmacy from "./HealthRightPharmacy/HealthRightPharmacy";
+
 import ProcessingPage from "./components/ProcessingPage";
 import PaymentModal from "./components/PaymentModal";
 import OrderSummary from "./pages/OrderSummary";
@@ -31,6 +33,7 @@ function App() {
   const [selectedMedicines, setSelectedMedicines] = useState([]);
   const [pharmacy, setPharmacy] = useState([]);
   return (
+    
     <Suspense
       fallback={
         <section
@@ -123,6 +126,7 @@ function App() {
         />
 
         <Route path="/complete-profile" element={<ProfileSignup />} />
+        <Route path="/health-right-pharmacy" element={<HealthRightPharmacy />}/>
 
         {/* Pharmacy Routing */}
         <Route path="/dashboard" element={<Dashboard />} />
