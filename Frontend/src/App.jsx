@@ -12,7 +12,7 @@ import OtpPage from "./pages/OtpPage";
 import ProcessingPage from "./components/ProcessingPage";
 import PaymentModal from "./components/PaymentModal";
 import OrderSummary from "./pages/OrderSummary";
-import ProfileSignup from "./pages/ProfileSignup";
+// import ProfileSignup from "./pages/ProfileSignup";
 import FindMedsLoading from "./components/FindMedsLoading";
 import UpdatedCart from "./pages/UpdatedCart";
 import PhamarcySignUp from "./components/forms/PhamarcySignUp";
@@ -122,7 +122,7 @@ function App() {
           }
         />
 
-        <Route path="/complete-profile" element={<ProfileSignup />} />
+        {/* <Route path="/complete-profile" element={<ProfileSignup />} /> */}
 
         {/* Pharmacy Routing */}
         <Route path="/dashboard" element={<Dashboard />} />

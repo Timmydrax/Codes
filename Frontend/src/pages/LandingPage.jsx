@@ -17,13 +17,13 @@ import clientPicTwo from "/src/assets/clientpic2.svg";
 import clientPicThree from "/src/assets/clientpic3.svg";
 import forPatients from "/src/assets/forpatients.svg";
 import pharmaCare from "/src/assets/phamacare.svg";
-import colorbuttons from "/src/assets/colorbuttons.svg"
+import colorbuttons from "/src/assets/colorbuttons.svg";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate("/signup-phone");
+    navigate("/signup-email");
   };
 
   const handleLogin = () => {
@@ -31,8 +31,8 @@ const LandingPage = () => {
   };
 
   const handleMedication = () => {
-    navigate("/findmeds")
-  }
+    navigate("/findmeds");
+  };
 
   return (
     <div className="landing-page-container">
@@ -244,7 +244,10 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <div className="colorbuttons-container"> <img src={colorbuttons} alt="color buttons" /></div>
+        <div className="colorbuttons-container">
+          {" "}
+          <img src={colorbuttons} alt="color buttons" />
+        </div>
       </div>
 
       <div className="sixth-level-content">
