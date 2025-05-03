@@ -7,15 +7,48 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSignIn = async (e) => {
+    // Prevent Default submission
+    e.preventDefault();
+    setError("");
+
+    try {
+      const response = await fetch(
+        "https://new-cura.onrender.com/api/patients/signin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem("authtoken", data.token);
+        navigate("/findmeds");
+      } else if (response.status === 401) {
+        const data = await response.json();
+        setError(data.message || "Invalid email or password.");
+      } else if (response.status === 404) {
+        setError("Account not found. Please check your email.");
+      } else {
+        setError(data.message || "Sign-in failed. Please try again.");
+      }
+    } catch (error) {
+      setError("Network error. Please try again later.");
+      console.error("Sign-in error:", error);
+    }
+  };
 
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate("/signup-phone");
-  };
-
-  const handleProfile = () => {
-    navigate("/findmeds");
+    navigate("/signup-email");
   };
 
   const handleSubmit = (e) => {
@@ -68,7 +101,7 @@ const SignIn = () => {
           <button
             type="submit"
             className={styles.signinButton}
-            onClick={handleProfile}
+            onClick={handleSignIn}
           >
             Sign in
           </button>
@@ -76,9 +109,22 @@ const SignIn = () => {
           <button className={styles.googleButton}>
             Or sign in with Google
           </button>
+
+          {/* Error message */}
+          {error && (
+            <p
+              style={{
+                color: "red",
+                textAlign: "center",
+                marginBlockStart: "1rem",
+              }}
+            >
+              {error}
+            </p>
+          )}
         </form>
 
-        <p class={styles.signupText}>
+        <p className={styles.signupText}>
           Don't have an account?{" "}
           <a href="#" onClick={handleSignUp}>
             Sign up
