@@ -1,8 +1,8 @@
-import Styles from "./Health.module.css";
+import Styles from "./Locate.module.css";
 import hoppyPic from "../assets/Hoppyoo.jpg";
 import whatsappPic from "../assets/whatsapp symbol.png";
 import arrowPic from "../assets/ArrowSquareLeft.png";
-function HealthRightPharmacy() {
+function LocatePharmacy() {
   return (
     <div className={Styles.pharmacyContainer}>
       <div className={Styles.mainContainer}>
@@ -10,7 +10,7 @@ function HealthRightPharmacy() {
           <img src={hoppyPic} alt="image" width="40px" />
         </div>
 
-        <div className={Styles.curamap}> 
+        <div className={Styles.curamap}>
           <p>CURAMAP</p>
         </div>
       </div>
@@ -20,11 +20,7 @@ function HealthRightPharmacy() {
       </div>
       <div className={Styles.secondmain}>
         <button className={Styles.button}>
-          <img
-            src={arrowPic}
-            alt="icon"
-           
-          />
+          <img src={arrowPic} alt="icon" />
           Directions
         </button>
       </div>
@@ -37,4 +33,4 @@ function HealthRightPharmacy() {
     </div>
   );
 }
-export default HealthRightPharmacy;
+export default LocatePharmacy;
