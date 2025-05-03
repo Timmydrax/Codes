@@ -9,7 +9,7 @@ import Newsignup from "./components/forms/Newsignup";
 import TransactionSuccess from "./pages/TransactionSuccess";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import OtpPage from "./pages/OtpPage";
-import HealthRightPharmacy from "./HealthRightPharmacy/HealthRightPharmacy";
+import LocatePharmacy from "./HealthRightPharmacy/LocatePharmacy";
 
 import ProcessingPage from "./components/ProcessingPage";
 import PaymentModal from "./components/PaymentModal";
@@ -19,6 +19,9 @@ import FindMedsLoading from "./components/FindMedsLoading";
 import UpdatedCart from "./pages/UpdatedCart";
 import PhamarcySignUp from "./components/forms/PhamarcySignUp";
 import MedicineTable from "./components/MedicineTable";
+import UploadPrescription from "./pages/UploadPrescription";
+import PharmacyOtp from "./components/PharmacyOtp";
+import OtpConfirmed from "./components/OtpConfirmed";
 
 // Code splitted Components (Lazy Loading)...
 // N.B- Please do not touch if you're new to how lazy loading works..
@@ -125,16 +128,16 @@ function App() {
           }
         />
 
-        <Route
-          path="/health-right-pharmacy"
-          element={<HealthRightPharmacy />}
-        />
+        <Route path="/locate-pharmacy" element={<LocatePharmacy />} />
 
         {/* Pharmacy Routing */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pharmacist-profile" element={<PharmacistProfile />} />
         <Route path="/pharmacy-signup" element={<PhamarcySignUp />} />
         <Route path="/medicine-table" element={<MedicineTable />} />
+        <Route path="/upload-prescription" element={<UploadPrescription />} />
+        <Route path="/pharmacy-otp" element={<PharmacyOtp />} />
+        <Route path="/otp-confirmed" element={<OtpConfirmed />} />
       </Routes>
     </Suspense>
   );
