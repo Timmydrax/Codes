@@ -43,12 +43,20 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Image and Push to ECR
+      - name: Build Frontend Image and Push to ECR
         uses: docker/build-push-action@v6
         with:
           context: ./Frontend
           push: true
-          tags: ${{ env.AWS_ECR_REGISTRY }}/${{ env.AWS_ECR_REPOSITORY }}:latest
+          tags: ${{ env.AWS_ECR_REGISTRY }}/frontend:latest
+
+      - name: Build Backend Image and Push to ECR
+        uses: docker/build-push-action@v6
+        with:
+          context: ./Backend
+          push: true
+          tags: ${{ env.AWS_ECR_REGISTRY }}/backend:latest
+          #tags: ${{ env.AWS_ECR_REGISTRY }}/${{ env.AWS_ECR_REPOSITORY }}:latest
 
 
   Deploy_to_Staging:
