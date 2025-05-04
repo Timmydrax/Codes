@@ -1,8 +1,7 @@
 name: Staging Deployment
 on:
   pull_request:
-    types:
-      - closed
+    types: [closed]
     branches:
       - staging
   push:
@@ -20,13 +19,13 @@ env:
   SSH_STAGING_PASSWORD: ${{secrets.CURAMAP_PASS}}
 
 concurrency:
-  group: ${{{github.head_ref || github.run_id}}}
+  group: ${{github.head_ref || github.run_id}}
   cancel_in_progress: true
   
 
 jobs:
   Build_curamap_image:
-  if_merged:
+    name: Build Docker Image and Push to ECR
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -55,12 +54,13 @@ jobs:
 
 
   Deploy_to_Staging:
-    needs: [build]
+    name: Deploy to Staging EC2 Server
+    if: github.ref == 'refs/heads/staging'
+    needs: [Build_curamap_image]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to EC2 Server ⏳
         uses: appleboy/ssh-action@master
-        if: github.ref == 'refs/heads/staging'
         with:
           host: ${{ env.SSH_STAGING_HOST }}
           username: ${{ env.CURAMAP_SSH_USER }}
