@@ -46,7 +46,7 @@ jobs:
       - name: Build Image and Push to ECR
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./Frontend
           push: true
           tags: ${{ env.AWS_ECR_REGISTRY }}/${{ env.AWS_ECR_REPOSITORY }}:latest
 
