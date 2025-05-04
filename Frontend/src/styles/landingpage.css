@@ -270,6 +270,10 @@ body {
   flex-direction: column;
 }
 
+
+.fourth-level-content h2{
+  font-size: 1.5em;
+}
 /* BEFORE YOU UNCOMMENT THIS CODE MAKE SURE YOU GIVE IT A CLASS SO IT STOPS AFFECTING OTHER PEOPLE'S CODE */
 /* .name-pre h4,
 p {
@@ -327,6 +331,11 @@ p {
   flex-direction: column;
 }
 
+.fifth-level-content h2{
+  font-size: 1.6em;
+  margin-left: 2em;
+  margin-bottom: 4em;
+}
 .fifth-card-container {
   display: flex;
   justify-content: center;
@@ -392,6 +401,11 @@ p {
 
 .card-6 p {
   margin-bottom: 4em;
+}
+
+.colorbuttons-container{
+  margin: 0 auto; 
+  margin-top: 4em;
 }
 /* sixth levl content*/
 
@@ -522,6 +536,10 @@ p {
   flex-direction: column;
   gap: 1.2em;
   list-style-type: none;
+}
+
+.Terms-container{
+  margin-top: 12em;
 }
 /* Responsive Design */
 

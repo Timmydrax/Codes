@@ -120,7 +120,7 @@ const LandingPage = () => {
       </div>
 
       <div className="fourth-level-content">
-        <h3>How is curamap Different ?</h3>
+        <h2>How is curamap Different ?</h2>
         <div className="card-container">
           <div className="card card-1">
             <div className="card-1-img-container">
@@ -341,7 +341,10 @@ const LandingPage = () => {
             <li>Youtube</li>
           </ul>
         </div>
+        <div className="Terms-container">
         <h4>Terms And Conditions | Privacy Policy</h4>
+        </div>
+    
       </div>
     </div>
   );
