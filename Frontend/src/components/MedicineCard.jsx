@@ -1,4 +1,4 @@
-import trash from "../assets/trash.png";
+import trash from "../assets/Trash.png";
 import { useState } from "react";
 
 const MedicineCard = ({

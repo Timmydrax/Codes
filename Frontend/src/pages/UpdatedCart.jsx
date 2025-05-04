@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import styles from "../styles/UpdatedCart.module.css";
+import styles from "../styles/updatedcart.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const UpdatedCart = () => {
