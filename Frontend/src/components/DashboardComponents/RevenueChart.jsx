@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 
-import  SourceData from "../data/SourceData.json";
+import  SourceData from "../data/sourcedata.json";
 import styles from "../../styles/dashboard.module.css";
 
 defaults.maintainAspectRatio = false;
