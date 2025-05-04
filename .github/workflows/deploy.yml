@@ -48,15 +48,14 @@ jobs:
         with:
           context: ./Frontend
           push: true
-          tags: ${{ env.AWS_ECR_REGISTRY }}/frontend:latest
+          tags: ${{ env.AWS_ECR_REGISTRY }}/${{ env.AWS_ECR_REPOSITORY }}:frontend
 
       - name: Build Backend Image and Push to ECR
         uses: docker/build-push-action@v6
         with:
           context: ./Backend
           push: true
-          tags: ${{ env.AWS_ECR_REGISTRY }}/backend:latest
-          #tags: ${{ env.AWS_ECR_REGISTRY }}/${{ env.AWS_ECR_REPOSITORY }}:latest
+          tags: ${{ env.AWS_ECR_REGISTRY }}/${{ env.AWS_ECR_REPOSITORY }}:backend
 
 
   Deploy_to_Staging:
