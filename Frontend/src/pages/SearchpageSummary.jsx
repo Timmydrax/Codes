@@ -28,8 +28,8 @@ const SearchpageSummary = () => {
             <h3>Selected Medicines:</h3>
             <ul className="summary-list">
               {selectedMedicines.map((medicine) => {
-                const { price, quantity } = medicine;
-                const calculatedPrice = Number(price) * Number(quantity);
+                const { price } = medicine;
+                const calculatedPrice = Number(price);
 
                 return (
                   <li key={medicine.id}>

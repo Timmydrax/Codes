@@ -296,8 +296,6 @@ button[type="submit"] {
 }
 
 .signupbtn {
-  -webkit-margin-before: 1rem;
-  margin-block-start: 1rem;
   padding-block: 0.5rem;
   border: 1px solid #338f85;
   border-radius: 4px;
@@ -450,6 +448,11 @@ button[type="submit"] {
       color: #555;
     }
   }
+}
+
+.error {
+  color: #ff0000;
+  font-size: 12px;
 }
 
 .btnbox {
