@@ -2,6 +2,26 @@ import React, { useState } from "react";
 import styles from "../../styles/signup.module.css";
 import { useNavigate } from "react-router-dom";
 
+const InputField = ({
+  id,
+  name,
+  type,
+  placeholder,
+  value,
+  onChange,
+  invalid,
+}) => (
+  <input
+    id={id}
+    name={name}
+    type={type}
+    placeholder={placeholder}
+    value={value}
+    onChange={onChange}
+    className={invalid ? styles.invalid : ""}
+  />
+);
+
 const SignUp = () => {
   const navigate = useNavigate();
 
@@ -11,15 +31,17 @@ const SignUp = () => {
     year: "",
     email: "",
     password: "",
-    otp: "",
+    confirmPassword: "",
     fullName: "",
     phoneNumber: "",
     validId: "",
     conditions: "",
   });
 
-  const [isCompleteVisible, setIsCompleteVisible] = useState(false); // State to toggle between sections
+  const [isCompleteVisible, setIsCompleteVisible] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [invalidFields, setInvalidFields] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,32 +49,59 @@ const SignUp = () => {
       ...prev,
       [name]: value,
     }));
+
+    // Clear invalid field if it becomes valid
+    setInvalidFields((prev) => ({
+      ...prev,
+      [name]: value.trim() === "" ? true : false,
+    }));
   };
 
   const handleNext = () => {
-    setIsCompleteVisible(true); // Show the .complete section
+    setIsCompleteVisible(true);
   };
 
   const handleBack = () => {
-    setIsCompleteVisible(false); // Show the .signUp section
+    setIsCompleteVisible(false);
+  };
+
+  const validateFields = () => {
+    const newInvalidFields = {};
+    if (!formData.fullName.trim()) newInvalidFields.fullName = true;
+    if (!formData.phoneNumber.trim() || !/^\d{10}$/.test(formData.phoneNumber))
+      newInvalidFields.phoneNumber = true;
+    if (!formData.validId.trim()) newInvalidFields.validId = true;
+    if (!formData.conditions.trim()) newInvalidFields.conditions = true;
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email))
+      newInvalidFields.email = true;
+    if (formData.password !== formData.confirmPassword)
+      newInvalidFields.password = true;
+
+    setInvalidFields(newInvalidFields);
+    return Object.keys(newInvalidFields).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
+    if (!validateFields()) {
+      setError("Please correct the highlighted fields.");
+      return;
+    }
+
+    setLoading(true);
+
     const payload = {
       dateOfBirth: `${formData.year}-${formData.month}-${formData.day}`,
       email: formData.email,
       password: formData.password,
-      otp: formData.otp,
+      confirmPassword: formData.confirmPassword,
       fullName: formData.fullName,
       phoneNumber: formData.phoneNumber,
       validId: formData.validId,
       conditions: formData.conditions,
     };
-
-    console.log("Payload being sent:", payload);
 
     try {
       const response = await fetch(
@@ -68,19 +117,18 @@ const SignUp = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("Error response from server:", errorData);
         throw new Error(
           errorData.message || "Failed to sign up. Please try again."
         );
       }
 
       const data = await response.json();
-      console.log("Signup successful:", data);
       alert("Signup successful!");
       navigate("/findmeds");
     } catch (err) {
-      console.error("Error details:", err);
       setError(err.message || "An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -99,21 +147,21 @@ const SignUp = () => {
               <fieldset>
                 <legend>When is your birthday?</legend>
                 <div className={styles.dob}>
-                  <input
-                    type="number"
+                  <InputField
                     id={styles.dayInput}
                     name="day"
-                    min="1"
-                    max="31"
+                    type="number"
                     placeholder="Day"
                     value={formData.day}
                     onChange={handleChange}
+                    invalid={invalidFields.day}
                   />
                   <select
                     id={styles.monthInput}
                     name="month"
                     value={formData.month}
                     onChange={handleChange}
+                    className={invalidFields.month ? styles.invalid : ""}
                   >
                     <option value="" disabled>
                       Month
@@ -131,45 +179,49 @@ const SignUp = () => {
                     <option value="11">November</option>
                     <option value="12">December</option>
                   </select>
-                  <input
-                    type="number"
+                  <InputField
                     id={styles.yearInput}
                     name="year"
-                    min="1900"
-                    max="2100"
+                    type="number"
                     placeholder="Year"
                     value={formData.year}
                     onChange={handleChange}
+                    invalid={invalidFields.year}
                   />
                 </div>
                 <p className={styles.undertext}>
                   Your birthday won't be shown publicly.
                 </p>
               </fieldset>
-              <input
-                type="email"
+              <InputField
                 id="email"
                 name="email"
+                type="email"
                 placeholder="Email address"
                 value={formData.email}
                 onChange={handleChange}
+                invalid={invalidFields.email}
               />
-              <input
-                type="password"
+              <InputField
                 id="password"
                 name="password"
+                type="password"
                 placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
+                invalid={invalidFields.password}
               />
-              <input
-                type="number"
-                id="otp"
-                name="otp"
-                placeholder="Enter 6 digit code"
-                value={formData.otp}
+              <InputField
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                value={formData.confirmPassword}
                 onChange={handleChange}
+                invalid={invalidFields.password}
               />
+              {error && <p className={styles.error}>{error}</p>}
+
               <button
                 type="button"
                 className={styles.signupbtn}
@@ -177,61 +229,61 @@ const SignUp = () => {
               >
                 Next
               </button>
-              {error && <p className={styles.error}>{error}</p>}
             </form>
           </section>
 
           {/* Complete Profile Section */}
           <section className={`${styles.signupcontainer} ${styles.complete}`}>
             <h1 className={styles.profileheading}>Complete your Profile</h1>
-            <form
-              className={styles.profileform}
-              onSubmit={(e) => e.preventDefault()}
-            >
+            <form className={styles.profileform} onSubmit={handleSubmit}>
               <div className={styles.namebox}>
                 <label htmlFor="fullName">Full Name</label>
-                <input
-                  type="text"
+                <InputField
                   id="fullName"
                   name="fullName"
+                  type="text"
                   placeholder="Name as shown on Valid ID"
                   value={formData.fullName}
                   onChange={handleChange}
+                  invalid={invalidFields.fullName}
                 />
               </div>
               <div className={styles.phone}>
                 <p className={styles.phoneNo}>Phone No</p>
                 <div className={styles.numberbox}>
                   <span>+234</span>
-                  <input
-                    type="tel"
+                  <InputField
                     id="phoneNumber"
                     name="phoneNumber"
+                    type="tel"
                     placeholder="80* *** ****"
                     value={formData.phoneNumber}
                     onChange={handleChange}
+                    invalid={invalidFields.phoneNumber}
                   />
                 </div>
               </div>
               <div className={styles.idbox}>
                 <label htmlFor="validId">Valid ID</label>
-                <input
-                  type="text"
+                <InputField
                   id="validId"
                   name="validId"
+                  type="text"
                   placeholder="Valid means of ID"
                   value={formData.validId}
                   onChange={handleChange}
+                  invalid={invalidFields.validId}
                 />
               </div>
               <div className={styles.conditionsbox}>
-                <input
-                  name="conditions"
+                <InputField
                   id="conditions"
+                  name="conditions"
+                  type="text"
+                  placeholder="Any Pre-existing condition?"
                   value={formData.conditions}
                   onChange={handleChange}
-                  placeholder="Any Pre-existing condition?"
-                  type="text"
+                  invalid={invalidFields.conditions}
                 />
               </div>
               {error && <p className={styles.error}>{error}</p>}
@@ -246,9 +298,9 @@ const SignUp = () => {
                 <button
                   className={styles.finishbtn}
                   type="submit"
-                  onClick={handleSubmit}
+                  disabled={loading}
                 >
-                  Finish
+                  {loading ? "Submitting..." : "Finish"}
                 </button>
               </div>
             </form>
