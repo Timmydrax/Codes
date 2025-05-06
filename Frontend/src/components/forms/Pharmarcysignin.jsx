@@ -1,9 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import styles from "../../styles/signin.module.css";
+import React, { useState } from "react";
+import styles from "../../styles/pharmacysignin.module.css";
+import caretleft from "../../assets/CaretLeft.png";
+import cancelicon from "../../assets/X.png";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = () => {
+const Pharmarcysignin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -16,7 +17,8 @@ const SignIn = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/patients/signin`,
+        // "https://new-cura.onrender.com/api/pharmacies/signin",
+        `${import.meta.env.VITE_API_URL}/pharmacies/signin`,
 
         {
           method: "POST",
@@ -31,7 +33,7 @@ const SignIn = () => {
 
       if (response.ok) {
         localStorage.setItem("authtoken", data.token);
-        navigate("/findmeds");
+        navigate("/dashboard");
       } else if (response.status === 401) {
         const data = await response.json();
         setError(data.message || "Invalid email or password.");
@@ -55,38 +57,33 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
   return (
     <div className={styles.container}>
-      <div className={styles.loginBox}>
-        <div className={styles.backButton}>
-          <a href="/">
-            <img src="/src/assets/CaretLeft.png" alt="" />
-          </a>
+      <section className={styles.signupSection}>
+        <div className={styles.headerNav}>
+          <img src={caretleft} alt="go back" className={styles.backIcon} />
+          <h1 className={styles.headerText}>Log In</h1>
+          <img src={cancelicon} alt="close" className={styles.closeIcon} />
         </div>
-
-        <h2 className={styles.loginText}>Log in</h2>
         <form onSubmit={handleSubmit}>
-          <div className={styles.inputGroup}>
-            <input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className={styles.inputGroup}>
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
           <div className={styles.options}>
             <label>
               <input
@@ -96,21 +93,18 @@ const SignIn = () => {
               />
               Remember Me
             </label>
-            <a href="#">Forgot password?</a>
+            <a className={styles.forgot} href="#">
+              Forgot password?
+            </a>
           </div>
 
           <button
             type="submit"
-            className={styles.signinButton}
+            className={styles.signupbtn}
             onClick={handleSignIn}
           >
-            Sign in
+            Sign In
           </button>
-
-          <button className={styles.googleButton}>
-            Or sign in with Google
-          </button>
-
           {/* Error message */}
           {error && (
             <p
@@ -124,16 +118,13 @@ const SignIn = () => {
             </p>
           )}
         </form>
-
-        <p className={styles.signupText}>
-          Don't have an account?{" "}
-          <a href="#" onClick={handleSignUp}>
-            Sign up
-          </a>
-        </p>
-      </div>
+        <div className={styles.redirectLink}>
+          <p>Don't have an account?</p>
+          <a onClick={handleSignUp}>Sign up</a>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default SignIn;
+export default Pharmarcysignin;
