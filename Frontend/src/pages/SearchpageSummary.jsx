@@ -50,7 +50,7 @@ const SearchpageSummary = () => {
             onClick={viewShoppingCart}
             className="summary-btn view-cart-btn"
           >
-            View Shopping Cart
+            Find more Meds
           </button>
 
           <button
@@ -60,7 +60,7 @@ const SearchpageSummary = () => {
             disabled={selectedMedicines.length === 0}
             className="summary-btn continue-btn"
           >
-            Continue Shopping
+            Continue
           </button>
         </div>
         {/* Prescription warning message */}

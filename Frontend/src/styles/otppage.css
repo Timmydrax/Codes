@@ -1,47 +1,58 @@
-.bodyotp{
-    display: flex;
-    justify-content: center;  
-    align-items: center;       
-    height: 100vh;              
-    margin: 0; 
-    
-    
+.bodyotp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
-
 
 .boxOne {
-    width:800px;
-    height: 80vh;
+  width: 800px;
+  min-height: 80vh;
   padding: 35px;
-   background-color: white;
+  background-color: white;
 }
 
-.topText{
-    text-align: center;
-    color: grey;
+.topText {
+  text-align: center;
+  color: grey;
 }
 
 .bodyotp {
-line-height: 2.4;
+  line-height: 2.4;
 }
 
 .boxTwo {
- display: flex;
- flex-direction: column;
- gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
- 
+
 .boxchilds {
-    border: 1px solid black;
-    height: 10vh;
-    width: 400px;
-    margin-left: 80px;
-    border-radius: 8px;
-    display: flex;
-    padding: 20px;
-    gap: 50px;
-    color:grey
+  border: 1px solid black;
+  min-height: 10vh;
+  width: 400px;
+  margin-left: 80px;
+  border-radius: 8px;
+  display: flex;
+  padding: 20px;
+  gap: 50px;
+  color: grey;
 }
-.onlyAchord{
-    margin: 0 auto;
+.onlyAchord {
+  margin: 0 auto;
+}
+
+.otp-cta {
+  width: 150px;
+  border: none;
+  background-color: rgba(0, 168, 67, 0.795);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(0, 84, 0);
+  }
 }

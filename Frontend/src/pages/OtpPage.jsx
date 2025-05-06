@@ -2,39 +2,52 @@ import "../styles/otppage.css";
 import onePic from "../assets/one.com.png";
 import twoPic from "../assets/two.com.png";
 import threePic from "../assets/three.com.png";
+import { useNavigate } from "react-router-dom";
 
-function OtpPage(){
+function OtpPage() {
+  const navigate = useNavigate();
 
-    return(
-        <div className="bodyotp">
-<div className="boxOne">
+  const handleContinue = () => {
+    navigate("/locate-pharmacy");
+  };
 
-    <div className="topText">
-    <p>Check your Email or phone number for OTP</p>
-</div>
+  return (
+    <div className="bodyotp">
+      <div className="boxOne">
+        <div className="topText">
+          <p>Check your Email or phone number for OTP</p>
+        </div>
 
-<span className="spanText">Here’s how it works </span>
+        <span className="spanText">Here’s how it works </span>
 
-<div className="boxTwo">
-    <div className="boxchilds">
-        <div className="oneAchord"><img src={onePic} alt="" width="30px"/></div>
-        <div className="twoAchord">Arrive at the pharmacy</div>
+        <div className="boxTwo">
+          <div className="boxchilds">
+            <div className="oneAchord">
+              <img src={onePic} alt="" width="30px" />
+            </div>
+            <div className="twoAchord">Arrive at the pharmacy</div>
+          </div>
+          <div className="boxchilds">
+            <div className="oneAchord">
+              <img src={twoPic} alt="" width="30px" />
+            </div>
+            <div className="twoAchord">Meet the pharmacist and provide OTP</div>
+          </div>
+          <div className="boxchilds">
+            <div className="oneAchord">
+              <img src={threePic} alt="" width="30px" />
+            </div>
+            <div className="twoAchord">Pharmacist confirms your pick up</div>
+          </div>
+          <div className="boxchilds">
+            <div className="onlyAchord">Use your drugs</div>
+          </div>
+          <button className="otp-cta" id="otp-cta" onClick={handleContinue}>
+            Continue
+          </button>
+        </div>
+      </div>
     </div>
-    <div className="boxchilds">
-    <div className="oneAchord"><img src={twoPic} alt=""  width="30px"/></div>
-    <div className="twoAchord">Meet the pharmacist and provide OTP</div>
-    </div>
-    <div className="boxchilds">
-    <div className="oneAchord"><img src={threePic} alt="" width="30px"/></div>
-    <div className="twoAchord">Pharmacist confirms your pick up</div>
-    </div>
-    <div className="boxchilds">
-    <div className="onlyAchord">Use your drugs</div>
-    </div>
-
-</div>
-</div>
-</div>
-    );
+  );
 }
 export default OtpPage;

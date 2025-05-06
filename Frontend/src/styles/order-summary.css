@@ -1,5 +1,5 @@
 .shopping-cart {
-  padding: 0px 30px;
+  padding: 20px 30px;
 }
 
 .search-header {
@@ -54,6 +54,7 @@
 .cart-text {
   display: flex;
   align-items: center;
+  padding-block: 1rem;
 }
 
 .cart-text-1 {

@@ -1,6 +1,6 @@
 // import React from "react";
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/paymentmodal.css";
 import { FaHospital, FaMoneyBillWave, FaLock } from "react-icons/fa";
 
@@ -8,6 +8,12 @@ const PaymentModal = () => {
   const { state } = useLocation();
   const total = state?.total || 0; // Default value if not provided
   const [selectedMethod, setSelectedMethod] = useState("pharmacy");
+
+  const navigate = useNavigate();
+
+  const handleOtppage = () => {
+    navigate("/otp-page")
+  }
 
   return (
     <div className="modal-overlay">
@@ -69,7 +75,9 @@ const PaymentModal = () => {
         {/* Buttons */}
         <div className="modal-buttons">
           <button className="cancel">Cancel Payment</button>
-          <button className="confirm">Confirm </button>
+          <button className="confirm" onClick={handleOtppage}>
+            Confirm{" "}
+          </button>
         </div>
 
         {/* Security Info */}
