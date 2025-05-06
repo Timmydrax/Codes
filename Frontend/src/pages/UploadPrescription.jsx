@@ -1,4 +1,4 @@
-import styles from "../styles/UploadPrescription.module.css";
+import styles from "../styles/uploadprescription.module.css";
 
 const UploadPrescription = () => {
   return (
