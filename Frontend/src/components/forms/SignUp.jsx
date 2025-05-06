@@ -105,7 +105,9 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        "https://new-cura.onrender.com/api/patients/signup",
+        // "https://new-cura.onrender.com/api/patients/signup",
+        `${import.meta.env.VITE_API_URL}/patients/signup`,
+
         {
           method: "POST",
           headers: {
