@@ -17,11 +17,12 @@ import OrderSummary from "./pages/OrderSummary";
 // import ProfileSignup from "./pages/ProfileSignup";
 import FindMedsLoading from "./components/FindMedsLoading";
 import UpdatedCart from "./pages/UpdatedCart";
-import PhamarcySignUp from "./components/forms/PhamarcySignUp";
+import NewPharmarcySignUp from "./components/forms/NewPharmarcySignUp";
 import MedicineTable from "./components/MedicineTable";
 import UploadPrescription from "./pages/UploadPrescription";
 import PharmacyOtp from "./components/PharmacyOtp";
 import OtpConfirmed from "./components/OtpConfirmed";
+import Pharmarcysignin from "./components/forms/Pharmarcysignin";
 
 // Code splitted Components (Lazy Loading)...
 // N.B- Please do not touch if you're new to how lazy loading works..
@@ -133,7 +134,8 @@ function App() {
         {/* Pharmacy Routing */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pharmacist-profile" element={<PharmacistProfile />} />
-        <Route path="/pharmacy-signup" element={<PhamarcySignUp />} />
+        <Route path="/pharmacy-signup" element={<NewPharmarcySignUp />} />
+        <Route path="/pharmacy-signin" element={<Pharmarcysignin />} />
         <Route path="/medicine-table" element={<MedicineTable />} />
         <Route path="/upload-prescription" element={<UploadPrescription />} />
         <Route path="/pharmacy-otp" element={<PharmacyOtp />} />
