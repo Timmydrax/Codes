@@ -223,7 +223,7 @@ const SignUp = () => {
                 invalid={invalidFields.password}
               />
               {error && <p className={styles.error}>{error}</p>}
-
+              
               <button
                 type="button"
                 className={styles.signupbtn}
