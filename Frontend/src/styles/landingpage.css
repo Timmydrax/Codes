@@ -14,7 +14,7 @@ body {
 .landing-page-container {
   display: flex;
   flex-direction: column;
-  gap: 7rem;
+  gap: 0rem;
 }
 
 .Logo {
@@ -23,6 +23,7 @@ body {
   justify-items: center;
   padding-left: 1.5rem;
   padding-top: 1.5rem;
+  margin-left: 4em;
 }
 
 .Logo img:nth-child(1) {
@@ -33,18 +34,12 @@ body {
 
 .MainContent {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-content: flex-start;
   height: 100%;
   gap: 10rem;
 }
 
-.TextContent {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 600px;
-}
+
 
 .TextContent h1 {
   font-size: 3rem;
@@ -60,12 +55,18 @@ body {
   line-height: 1.6;
 }
 
-.Buttons {
+.Buttons-and-banner {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 28rem;
+  margin-top: -23em;
 }
 
-.Buttons button {
+.buttons-container {
+  display: flex;
+}
+.Buttons-and-banner button {
   padding: 0.5rem 2rem;
   border-radius: 4px;
   font-size: 1rem;
@@ -74,23 +75,29 @@ body {
   transition: all 0.2s;
 }
 
-.Buttons button:first-child {
+.button-1 {
   background-color: transparent;
+  height: 4em;
+  width: 10em;
+  text-wrap: nowrap;
   color: #007e85;
   border: none;
 }
 
-.Buttons button:first-child:hover {
+.button-1:hover {
   color: #0f0f0f;
 }
 
-.Buttons button:last-child {
+.button-2 {
   background-color: #007e85;
+  height: 4em;
+  width: 10em;
+  text-wrap: nowrap;
   color: #f0f7ff;
   border: 1px solid #4a9eff;
 }
 
-.Buttons button:last-child:hover {
+.button-2:hover {
   color: #080808;
 }
 
@@ -101,6 +108,7 @@ body {
   max-width: 100%;
 }
 .MainContent img:nth-child(2) {
+  margin-top: 1em;
   max-width: 550px;
   width: 100%;
   height: auto;
@@ -270,8 +278,7 @@ body {
   flex-direction: column;
 }
 
-
-.fourth-level-content h2{
+.fourth-level-content h2 {
   font-size: 1.5em;
 }
 /* BEFORE YOU UNCOMMENT THIS CODE MAKE SURE YOU GIVE IT A CLASS SO IT STOPS AFFECTING OTHER PEOPLE'S CODE */
@@ -329,9 +336,10 @@ p {
 .fifth-level-content {
   display: flex;
   flex-direction: column;
+  margin-bottom: 4em;
 }
 
-.fifth-level-content h2{
+.fifth-level-content h2 {
   font-size: 1.6em;
   margin-left: 2em;
   margin-bottom: 4em;
@@ -403,8 +411,8 @@ p {
   margin-bottom: 4em;
 }
 
-.colorbuttons-container{
-  margin: 0 auto; 
+.colorbuttons-container {
+  margin: 0 auto;
   margin-top: 4em;
 }
 /* sixth levl content*/
@@ -538,7 +546,7 @@ p {
   list-style-type: none;
 }
 
-.Terms-container{
+.Terms-container {
   margin-top: 12em;
 }
 /* Responsive Design */

@@ -54,13 +54,17 @@ const LandingPage = () => {
             <br />
             to prioritize your wellbeing without the hassle.
           </p>
-          <div className="Buttons">
-            <button onClick={handleSignUp}>Sign Up</button>
-            <button onClick={handleLogin}>Sign In</button>
+          <div className="Buttons-and-banner">
+            <div className="buttons-container">
+            <button className="button-1" onClick={handleSignUp}>Sign Up</button>
+            <button className="button-2" onClick={handleLogin}>Sign In</button>
+            </div>
+           
+            <img src={banner} alt="Banner picture" />
           </div>
         </div>
 
-        <img src={banner} alt="Banner picture" />
+        
       </div>
       <div className="second-level-content">
         <h2>Connecting Patients to Pharmacies For Easy Medication Access.</h2>
