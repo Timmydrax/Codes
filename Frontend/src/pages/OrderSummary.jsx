@@ -65,11 +65,11 @@ const OrderSummary = () => {
       </div>
 
       <div className="cart-text">
-        <div className="cart-text-1">
+        {/* <div className="cart-text-1">
           <p>Cart</p>
           <p>Checkout</p>
-        </div>
-        <p className="secure">100% Secure</p>
+        </div> */}
+        {/* <p className="secure">100% Secure</p> */}
       </div>
       <div className="cont-shopping" onClick={backToSelection}>
         <svg
@@ -88,7 +88,7 @@ const OrderSummary = () => {
         </svg>
 
         <button onClick={backToSelection} className="cont-btn">
-          Back to Selection
+          Find more Meds
         </button>
       </div>
 

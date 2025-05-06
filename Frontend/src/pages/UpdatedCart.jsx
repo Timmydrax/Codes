@@ -31,7 +31,7 @@ const UpdatedCart = () => {
             disabled={selectedMedicines.length === 0}
             className={styles.backBtn}
           >
-            Back To Cart
+            Find more meds
           </button>
 
           <button
@@ -43,7 +43,7 @@ const UpdatedCart = () => {
             disabled={selectedMedicines.length === 0}
             className={styles.continueBtn}
           >
-            Continue Shopping
+            Checkout
           </button>
         </div>
       </div>
