@@ -54,13 +54,17 @@ const LandingPage = () => {
             <br />
             to prioritize your wellbeing without the hassle.
           </p>
-          <div className="Buttons">
-            <button onClick={handleSignUp}>Sign Up</button>
-            <button onClick={handleLogin}>Sign In</button>
+          <div className="Buttons-and-banner">
+            <div className="buttons-container">
+            <button className="button-1" onClick={handleSignUp}>Sign Up</button>
+            <button className="button-2" onClick={handleLogin}>Sign In</button>
+            </div>
+           
+            <img src={banner} alt="Banner picture" />
           </div>
         </div>
 
-        <img src={banner} alt="Banner picture" />
+        
       </div>
       <div className="second-level-content">
         <h2>Connecting Patients to Pharmacies For Easy Medication Access.</h2>
@@ -120,7 +124,7 @@ const LandingPage = () => {
       </div>
 
       <div className="fourth-level-content">
-        <h3>How is curamap Different ?</h3>
+        <h2>How is curamap Different ?</h2>
         <div className="card-container">
           <div className="card card-1">
             <div className="card-1-img-container">
@@ -341,7 +345,10 @@ const LandingPage = () => {
             <li>Youtube</li>
           </ul>
         </div>
+        <div className="Terms-container">
         <h4>Terms And Conditions | Privacy Policy</h4>
+        </div>
+    
       </div>
     </div>
   );
