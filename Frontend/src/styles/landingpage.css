@@ -8,38 +8,56 @@
 body {
   font-family: "Roboto", sans-serif;
   background: #f0f7ff;
-  min-height: 100vh;
 }
 
 .landing-page-container {
   display: flex;
   flex-direction: column;
   gap: 0rem;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .Logo {
   display: flex;
   align-items: center;
   justify-items: center;
-  padding-left: 1.5rem;
   padding-top: 1.5rem;
-  margin-left: 4em;
+  margin-left: 3em;
 }
 
 .Logo img:nth-child(1) {
-  max-width: 100%;
   height: 60px;
   width: 60px;
 }
 
 .MainContent {
   display: flex;
-  align-content: flex-start;
   height: 100%;
   gap: 10rem;
+  width: 100%;
 }
-
-
+.TextContent {
+  display: flex;
+  justify-content: flex-start;
+}
+.my-text {
+  display: flex;
+  max-width: 60%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding-left: 1em;
+  padding-right: 2em;
+  > p {
+    padding-inline-start: 2em;
+  }
+}
+.my-banner {
+  max-width: 40%;
+  width: 100%;
+}
 
 .TextContent h1 {
   font-size: 3rem;
@@ -55,24 +73,9 @@ body {
   line-height: 1.6;
 }
 
-.Buttons-and-banner {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 28rem;
-  margin-top: -23em;
-}
-
 .buttons-container {
   display: flex;
-}
-.Buttons-and-banner button {
-  padding: 0.5rem 2rem;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s;
+  width: 100%;
 }
 
 .button-1 {
@@ -82,6 +85,11 @@ body {
   text-wrap: nowrap;
   color: #007e85;
   border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s;
 }
 
 .button-1:hover {
@@ -95,6 +103,11 @@ body {
   text-wrap: nowrap;
   color: #f0f7ff;
   border: 1px solid #4a9eff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s;
 }
 
 .button-2:hover {
@@ -102,14 +115,12 @@ body {
 }
 
 .MainContent img:nth-child(1) {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  width: 100px;
-  max-width: 100%;
 }
+
 .MainContent img:nth-child(2) {
   margin-top: 1em;
-  max-width: 550px;
   width: 100%;
   height: auto;
 }
@@ -121,7 +132,7 @@ body {
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  gap: 10em;
+  gap: 8em;
   justify-content: flex-start;
   border-top: 1px solid #080808;
   border-bottom: 1px solid #080808;
@@ -147,10 +158,6 @@ body {
   flex-direction: column;
 }
 
-.second-level-content-p {
-  font-size: 18px;
-}
-
 .benefit-text-container p {
   text-wrap: wrap;
 }
@@ -169,7 +176,7 @@ body {
   flex: 1;
 }
 .second-level-content-p {
-  font-size: 1em;
+  font-size: 20px;
   flex: 2;
   width: 100%;
   text-wrap: nowrap;
@@ -183,14 +190,69 @@ body {
 
 .third-level-content {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  gap: 12em;
   width: 100%;
-  max-width: 90rem;
   border-bottom: 1px solid #080808;
+  > .third-level-content-text {
+    max-width: 40%;
+    width: 100%;
+    padding-left: 20px;
+  }
+  > .third-level-content-image {
+    flex: 1;
+  }
 }
 
+.third-level-content-text {
+  display: flex;
+  width: 50em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 16px;
+  gap: 4em;
+  padding-left: 2em;
+}
+
+.third-level-content-text p {
+  text-wrap: wrap;
+}
+.third-level-content-text h2 {
+  font-size: 3rem;
+  color: #333;
+}
+
+.third-level-content-text button {
+  width: 9rem;
+  height: 4.5rem;
+  padding: 0.5em;
+  background: #007e85;
+  color: #f0f7ff;
+  border: none;
+  border-radius: 0.3em;
+}
+
+/* Fourth level content of Landing Page*/
+
+.fourth-level-content {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 4rem;
+  flex-direction: column;
+  width: 100%;
+}
+
+.fourth-level-content h2 {
+  font-size: 1.5em;
+}
+/* BEFORE YOU UNCOMMENT THIS CODE MAKE SURE YOU GIVE IT A CLASS SO IT STOPS AFFECTING OTHER PEOPLE'S CODE */
+/* .name-pre h4,
+p {
+  text-wrap: nowrap;
+} */
 .card-1-img-container {
   position: absolute;
   display: flex;
@@ -199,7 +261,7 @@ body {
   border-radius: 3em;
   top: 0.5em;
   left: 1em;
-  max-width: 100%;
+  width: 100%;
 }
 
 .card-container {
@@ -207,6 +269,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2em;
+  width: 100%;
 }
 .card {
   position: relative;
@@ -237,55 +300,6 @@ body {
 .card-text-section-1 {
   margin-top: 15rem;
 }
-
-.third-level-content-text {
-  display: flex;
-  width: 50em;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  font-size: 16px;
-  gap: 5em;
-  padding-left: 2em;
-}
-
-.third-level-content-text p {
-  text-wrap: wrap;
-}
-.third-level-content-text h2 {
-  font-size: 2.1rem;
-  color: #333;
-}
-
-.third-level-content-text button {
-  width: 9rem;
-  height: 4.5rem;
-  padding: 0.5em;
-  background: #007e85;
-  color: #f0f7ff;
-  border: none;
-  border-radius: 0.3em;
-}
-
-/* Fourth level content of Landing Page*/
-
-.fourth-level-content {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-  align-items: flex-start;
-  padding: 4rem;
-  flex-direction: column;
-}
-
-.fourth-level-content h2 {
-  font-size: 1.5em;
-}
-/* BEFORE YOU UNCOMMENT THIS CODE MAKE SURE YOU GIVE IT A CLASS SO IT STOPS AFFECTING OTHER PEOPLE'S CODE */
-/* .name-pre h4,
-p {
-  text-wrap: nowrap;
-} */
 
 .card-3 {
   display: flex;
@@ -337,6 +351,7 @@ p {
   display: flex;
   flex-direction: column;
   margin-bottom: 4em;
+  width: 100%;
 }
 
 .fifth-level-content h2 {
@@ -349,6 +364,8 @@ p {
   justify-content: center;
   align-items: center;
   gap: 3em;
+  width: 100%;
+  padding-inline: 2em;
 }
 
 .testimonial-card {
@@ -526,8 +543,9 @@ p {
 .eight-level-content {
   display: flex;
   gap: 5em;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-top: 1em;
   justify-content: center;
   align-items: center;
   border-top: 1px solid #080808;
@@ -537,13 +555,15 @@ p {
 .column {
   display: flex;
   flex-direction: column;
-  gap: 1.2em;
+  gap: 1em;
+  padding-inline: 0;
 }
 .column ul {
   display: flex;
   flex-direction: column;
-  gap: 1.2em;
+  gap: 1em;
   list-style-type: none;
+  padding-inline: 0;
 }
 
 .Terms-container {

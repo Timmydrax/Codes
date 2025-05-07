@@ -91,6 +91,8 @@ const NewPharmarcySignUp = () => {
         phone: "",
         address: "",
       });
+      alert("Signup successful!");
+      navigate("/pharmacy-signin");
     } catch (err) {
       setError(err.message);
     } finally {
