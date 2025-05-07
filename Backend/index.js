@@ -8,24 +8,28 @@ const app = express();
 // Route Imports
 const pharmacyRoutes = require("./routes/pharmacyRoutes");
 const patientRoutes = require("./routes/patientRoutes");
+const medicineRoutes = require("./routes/medicine");
 
 // Middleware
 app.use(express.json());
 app.use(cookieParser()); // <-- Add cookie-parser middleware
 
 // Configure CORS options
+
 const corsOptions = {
   origin: process.env.ALLOWED_ORIGIN || "http://localhost:3000",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Allow cookies to be sent/received
+  credentials: true,
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Routes
 app.use("/api/pharmacies", pharmacyRoutes);
 app.use("/api/patients", patientRoutes);
+app.use("/api/medicines", medicineRoutes);
+
 // Database Connection
 mongoose
   .connect(process.env.DB_URI, { serverSelectionTimeoutMS: 60000 })

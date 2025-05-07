@@ -1,0 +1,514 @@
+.signupwrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/Hero-section.png");
+  background-color: #83c0b9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-block: 2rem;
+}
+
+.wrapper {
+  max-width: 484px;
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 500px;
+  transition: transform 0.5s ease-in-out;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared styles for both sections */
+.wrapper .signupcontainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-block: 3rem;
+  padding-inline: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.wrapper .signupcontainer.signUp {
+  transform: translateY(0); /* Default position (visible) */
+  z-index: 1; /* Ensure it is above the .complete section */
+}
+
+.wrapper .signupcontainer.complete {
+  transform: translateY(100%); /* Start below the Sign Up section */
+  z-index: 0; /* Ensure it is below the .signUp section */
+}
+
+.wrapper.active .signupcontainer.signUp {
+  transform: translateY(-100%); /* Move out of view (above) */
+}
+
+.wrapper.active .signupcontainer.complete {
+  transform: translateY(0); /* Move into view */
+}
+
+/* Sign Up Section */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.actionbtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.return,
+.cancel {
+  width: 24px;
+  height: 24px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+legend {
+  text-align: left;
+}
+
+.dob {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+input[type="number"] {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  width: 100px;
+  height: 3rem;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+
+  &::-webkit-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-moz-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &:-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::placeholder {
+    color: #000;
+    text-align: left;
+  }
+}
+
+#monthInput {
+  padding-inline: 0.75rem;
+  padding-block: 0.25rem;
+  width: 100px;
+  height: 3rem;
+  border: 1.5px solid #000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+
+  > option[value=""] {
+    color: #000;
+    text-align: left;
+  }
+}
+
+.undertext {
+  font-size: 14px;
+  color: #717171;
+  text-align: left;
+}
+
+.emailtag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="email"] {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+
+  &::-webkit-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-moz-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &:-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::placeholder {
+    color: #000;
+    text-align: left;
+  }
+}
+
+input[type="password"] {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+
+  &::-webkit-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-moz-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &:-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::placeholder {
+    color: #000;
+    text-align: left;
+  }
+}
+
+input[id="otp"] {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+
+  &::-webkit-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-moz-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &:-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::-ms-input-placeholder {
+    color: #000;
+    text-align: left;
+  }
+
+  &::placeholder {
+    color: #000;
+    text-align: left;
+  }
+}
+
+button[type="submit"] {
+  padding-block: 0.5rem;
+  border: 1px solid #83c0b9;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #83c0b9;
+    color: white;
+  }
+}
+
+.logintext {
+  > span {
+    text-decoration: none;
+    color: #83c0b9;
+    cursor: pointer;
+  }
+}
+
+.signupbtn {
+  padding-block: 0.5rem;
+  border: 1px solid #338f85;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #338f85;
+    color: white;
+  }
+}
+
+@media (max-width: 480px) {
+  .signupcontainer {
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    max-width: 350px;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  input[type="number"] {
+    padding-inline: 0.75rem;
+    padding-block: 0.25rem;
+    width: 90px;
+  }
+
+  select {
+    padding-inline: 0.75rem;
+    padding-block: 0.25rem;
+    width: 90px;
+  }
+
+  input[id="otp"] {
+    width: 100%;
+  }
+
+  .signupwrapper {
+    padding-block: 1.5rem;
+  }
+}
+
+/* complete signup section */
+
+.profileheading {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.profileform {
+  width: 100%;
+}
+
+.namebox,
+.idbox {
+  display: flex;
+  flex-direction: column;
+
+  > label {
+    font-weight: 600;
+  }
+
+  > input {
+    padding-inline: 16px;
+    padding-block: 8px;
+    border: 1.5px solid #000;
+    border-radius: 4px;
+    &::-webkit-input-placeholder {
+      font-size: 14px;
+      color: #555;
+    }
+
+    &::-moz-placeholder {
+      font-size: 14px;
+      color: #555;
+    }
+
+    &:-ms-input-placeholder {
+      font-size: 14px;
+      color: #555;
+    }
+
+    &::-ms-input-placeholder {
+      font-size: 14px;
+      color: #555;
+    }
+
+    &::placeholder {
+      font-size: 14px;
+      color: #555;
+    }
+  }
+}
+
+.phoneNo {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.numberbox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+  height: 44px;
+  padding-inline: 1rem;
+}
+.numberbox span {
+  padding-right: 10px;
+  height: fit-content;
+}
+
+.numberbox input {
+  flex: 1;
+  height: fit-content;
+  border: none;
+  outline: none;
+  &::-webkit-input-placeholder {
+    font-size: 14px;
+    color: #555;
+  }
+}
+
+.idbox {
+  > span {
+    > p {
+      font-size: 12px;
+      color: #555;
+    }
+  }
+}
+
+.conditionsbox {
+  display: flex;
+  flex-direction: column;
+
+  > input {
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    border: 1.5px solid #000;
+    border-radius: 4px;
+    color: #555;
+    font-size: 14px;
+    height: 42px;
+    &::placeholder {
+      font-size: 14px;
+      color: #555;
+    }
+  }
+}
+
+.error {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.btnbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  > .backbtn {
+    padding-block: 8px;
+    padding-inline: 12px;
+    background-color: transparent;
+    color: #111111;
+    border: 1px solid #111111;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #338f85;
+      border: 1px solid #338f85;
+    }
+  }
+
+  > .finishbtn {
+    padding-block: 8px;
+    padding-inline: 12px;
+    background-color: #338f85;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #267168;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profilewrapper {
+    padding: 1rem;
+  }
+  .conditionsbox {
+    > select {
+      width: 100%;
+    }
+  }
+
+  .profilecontainer {
+    padding: 2rem;
+    margin: 1.5rem auto;
+  }
+
+  .profileheading {
+    text-align: center;
+  }
+}
