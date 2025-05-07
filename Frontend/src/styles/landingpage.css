@@ -230,6 +230,7 @@ body {
   color: #f0f7ff;
   border: none;
   border-radius: 0.3em;
+  cursor: pointer;
 }
 
 /* Fourth level content of Landing Page*/
@@ -484,6 +485,7 @@ p {
   border: 0.1em solid;
   border-color: #007e85;
   border-radius: 0.3em;
+  cursor: pointer;
 }
 
 /* seventh level content */

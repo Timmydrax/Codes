@@ -281,7 +281,7 @@ const LandingPage = () => {
                   <p>
                     Order your Medication and Healthcare Solutions With Ease
                   </p>
-                  <button>Sign up</button>
+                  <button onClick={handleSignUp}>Sign up</button>
                 </div>
               </div>
             </div>
