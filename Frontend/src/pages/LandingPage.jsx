@@ -31,7 +31,11 @@ const LandingPage = () => {
   };
 
   const handleMedication = () => {
-    navigate("/findmeds");
+    navigate("/signin");
+  };
+
+  const handlePharmacy = () => {
+    navigate("/pharmacy-signup");
   };
 
   return (
@@ -56,15 +60,17 @@ const LandingPage = () => {
           </p>
           <div className="Buttons-and-banner">
             <div className="buttons-container">
-            <button className="button-1" onClick={handleSignUp}>Sign Up</button>
-            <button className="button-2" onClick={handleLogin}>Sign In</button>
+              <button className="button-1" onClick={handleSignUp}>
+                Sign Up
+              </button>
+              <button className="button-2" onClick={handleLogin}>
+                Sign In
+              </button>
             </div>
-           
+
             <img src={banner} alt="Banner picture" />
           </div>
         </div>
-
-        
       </div>
       <div className="second-level-content">
         <h2>Connecting Patients to Pharmacies For Easy Medication Access.</h2>
@@ -289,7 +295,7 @@ const LandingPage = () => {
                     Transforming Nigerian Pharmaceutical <br />
                     Healthcare Through Enhanced Pharmacy Fulfillment
                   </p>
-                  <button>Partner with us</button>
+                  <button onClick={handlePharmacy}>Partner with us</button>
                 </div>
               </div>
             </div>
@@ -312,7 +318,7 @@ const LandingPage = () => {
       <div className="eight-level-content">
         <div className="column First-column">
           <h3>
-            Copyright 2025 BRIX Templates <br />| All Rights Reserved
+            Copyright 2025 Curamap <br />| All Rights Reserved
           </h3>
         </div>
         <div className="column second-column">
@@ -346,9 +352,8 @@ const LandingPage = () => {
           </ul>
         </div>
         <div className="Terms-container">
-        <h4>Terms And Conditions | Privacy Policy</h4>
+          <h4>Terms And Conditions | Privacy Policy</h4>
         </div>
-    
       </div>
     </div>
   );
