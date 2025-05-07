@@ -18,12 +18,12 @@ const Dashboard = () => {
           <div className={styles.topCards}>
             <DrugsSold />
             <VendorActivity />
-            <DashboardCard  />
+            <DashboardCard />
           </div>
           <div className={styles.middleSection}>
             <OrdersTable />
+            <RevenueChart />
           </div>
-          <RevenueChart />
         </div>
       </main>
     </div>

@@ -60,6 +60,9 @@ const SignUp = () => {
   const handleNext = () => {
     setIsCompleteVisible(true);
   };
+  const handleSignin = () => {
+    navigate("/signin");
+  };
 
   const handleBack = () => {
     setIsCompleteVisible(false);
@@ -126,7 +129,7 @@ const SignUp = () => {
 
       const data = await response.json();
       alert("Signup successful!");
-      navigate("/findmeds");
+      navigate("/signin");
     } catch (err) {
       setError(err.message || "An error occurred. Please try again.");
     } finally {
@@ -223,7 +226,7 @@ const SignUp = () => {
                 invalid={invalidFields.password}
               />
               {error && <p className={styles.error}>{error}</p>}
-              
+
               <button
                 type="button"
                 className={styles.signupbtn}
@@ -231,6 +234,9 @@ const SignUp = () => {
               >
                 Next
               </button>
+              <p className={styles.login}>
+                Already have an account? <a onClick={handleSignin}>Log In</a>
+              </p>
             </form>
           </section>
 
@@ -297,6 +303,7 @@ const SignUp = () => {
                 >
                   Back
                 </button>
+
                 <button
                   className={styles.finishbtn}
                   type="submit"
