@@ -190,7 +190,6 @@ body {
 
 .third-level-content {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   width: 100%;
   border-bottom: 1px solid #080808;
@@ -361,7 +360,7 @@ p {
 }
 .fifth-card-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 3em;
   width: 100%;
@@ -373,55 +372,35 @@ p {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 24rem;
   height: 20rem;
   border-radius: 1em;
-  padding: 10rem;
-  padding-left: 5em;
-  max-width: 500px;
+
   font-size: 14px;
   overflow: hidden;
 }
 
-.testimonial-card p {
-  width: 300px;
-  height: 300px;
-}
 .profile {
   display: flex;
   text-align: left;
   align-items: center;
-  justify-content: center;
-  margin-left: -7em;
+
+  width: 100%;
   gap: 2em;
 }
 
 .card-5 {
   width: 26rem;
-  height: 26rem;
-}
-
-.card-4 {
-  padding-top: 9em;
-  padding-left: 6em;
-}
-
-.card-5 {
-  padding-top: 4.5em;
+  height: 25rem;
 }
 
 .image-container {
   width: 150px;
 }
 .testimonial-card p {
-  text-wrap: wrap;
-}
-
-.card-6 {
-  padding-top: 13.5em;
-  padding-left: 6.5em;
+  text-wrap: normal;
+  padding-left: 5px;
 }
 
 .card-6 p {
