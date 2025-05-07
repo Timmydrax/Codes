@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 
-import  SourceData from "../data/sourceData.json";
+import SourceData from "../data/sourceData.json";
 import styles from "../../styles/dashboard.module.css";
 
 defaults.maintainAspectRatio = false;
@@ -19,6 +19,7 @@ const RevenueChart = () => {
     <div className={styles.revenueChartContainer}>
       <div className={styles.revenueChart}>
         <Line
+          className="revenueChartLine" // Added className for styling
           data={{
             labels: SourceData.map((data) => data.label),
             datasets: [

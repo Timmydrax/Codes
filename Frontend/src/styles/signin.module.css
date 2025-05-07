@@ -1,5 +1,3 @@
-/* sign in  css section */
-
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -22,10 +20,10 @@
   padding: 3rem;
   border-radius: 10px;
   max-width: 484px;
-  width: 80%;
+  width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
-  min-height: 544px;
+  /* min-height: 544px; */
 }
 
 .backButton {
@@ -115,7 +113,8 @@
 }
 
 .signupText a {
-  color: #83c0b9;
+  color: #338f85;
+  font-weight: bold;
   text-decoration: none;
   cursor: pointer;
 }
