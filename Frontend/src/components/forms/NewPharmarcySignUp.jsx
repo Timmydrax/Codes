@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "../../styles/newpharmacysignup.module.css";
 import caretleft from "../../assets/CaretLeft.png";
 import cancelicon from "../../assets/X.png";
+import { useNavigate } from "react-router-dom";
 
 const InputField = ({ id, name, type, placeholder, value, onChange }) => (
   <input
@@ -15,6 +16,12 @@ const InputField = ({ id, name, type, placeholder, value, onChange }) => (
 );
 
 const NewPharmarcySignUp = () => {
+  const navigate = useNavigate();
+
+  const handlePharmSignIn = () => {
+    navigate("/pharmacy-signin");
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -160,7 +167,13 @@ const NewPharmarcySignUp = () => {
         </form>
         <div className={styles.redirectLink}>
           <p>Already have an account?</p>
-          <a href="/pharmacy-signin">Log in</a>
+          {/* <a href="/pharmacy-signin">Log in</a> */}
+          <p
+            onClick={handlePharmSignIn}
+            style={{ fontWeight: "500", color: "#83c0b9", cursor: "pointer" }}
+          >
+            Log in
+          </p>
         </div>
       </section>
     </div>
