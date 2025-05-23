@@ -51,7 +51,7 @@ const Pharmarcysignin = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate("/signup-email");
+    navigate("/pharmacy-signup");
   };
 
   const handleSubmit = (e) => {

@@ -147,6 +147,11 @@ const SignUp = () => {
         >
           {/* Sign Up Section */}
           <section className={`${styles.signupcontainer} ${styles.signUp}`}>
+            <div className={styles.backButton}>
+              <a href="/">
+                <img src="/src/assets/CaretLeft.png" alt="" />
+              </a>
+            </div>
             <h3 className={styles.title}>Sign Up</h3>
             <form onSubmit={(e) => e.preventDefault()}>
               <fieldset>

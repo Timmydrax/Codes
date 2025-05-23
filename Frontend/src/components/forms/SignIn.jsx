@@ -66,7 +66,7 @@ const SignIn = () => {
         </div>
 
         <h2 className={styles.loginText}>Log in</h2>
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
             <input
               type="email"
