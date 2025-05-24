@@ -14,7 +14,6 @@ import LocatePharmacy from "./HealthRightPharmacy/LocatePharmacy";
 import ProcessingPage from "./components/ProcessingPage";
 import PaymentModal from "./components/PaymentModal";
 import OrderSummary from "./pages/OrderSummary";
-// import ProfileSignup from "./pages/ProfileSignup";
 import FindMedsLoading from "./components/FindMedsLoading";
 import UpdatedCart from "./pages/UpdatedCart";
 import NewPharmarcySignUp from "./components/forms/NewPharmarcySignUp";
@@ -133,6 +132,7 @@ function App() {
         />
 
         <Route path="/locate-pharmacy" element={<LocatePharmacy />} />
+
 
         {/* Pharmacy Routing */}
         <Route path="/dashboard" element={<Dashboard />} />

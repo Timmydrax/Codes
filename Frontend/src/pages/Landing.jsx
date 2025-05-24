@@ -1,19 +1,19 @@
 import React from "react";
-import NavBar from "../components/landing/NavBar";
-import HeroSection from "../components/landing/HeroSection";
-import FeaturesSection from "../components/landing/FeaturesSection";
-import ConnectionSection from "../components/landing/ConnectionSection";
-import TestimonialsSection from "../components/landing/TestimonialsSection";
-import GetStartedSection from "../components/landing/GetStartedSection";
-import CallToActionSection from "../components/landing/CallToActionSection";
-import FaqSection from "../components/landing/FaqSection";
-import Footer from "../components/landing/Footer";
+import Navbar from "../components/landing/Navbar.jsx";
+import HeroSection from "../components/landing/HeroSection.jsx";
+import FeaturesSection from "../components/landing/FeaturesSection.jsx";
+import ConnectionSection from "../components/landing/ConnectionSection.jsx";
+import TestimonialsSection from "../components/landing/TestimonialsSection.jsx";
+import GetStartedSection from "../components/landing/GetStartedSection.jsx";
+import CallToActionSection from "../components/landing/CallToActionSection.jsx";
+import FaqSection from "../components/landing/FaqSection.jsx";
+import Footer from "../components/landing/Footer.jsx";
 import styles from "../styles/landing.module.css";
 
 const Landing = () => {
   return (
     <div className={styles.landingContainer}>
-      <NavBar />
+      <Navbar />
       <main>
         <HeroSection />
         <FeaturesSection />
