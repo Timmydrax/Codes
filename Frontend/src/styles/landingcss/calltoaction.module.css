@@ -1,0 +1,114 @@
+.CoaContainer {
+  padding-block: 3rem;
+  padding-inline: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.CoaChild1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, #e8f4f2, white);
+  z-index: -10;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.containerChild1 {
+  display: flex;
+  justify-content: center;
+  animation: fadeRight 0.6s ease-in-out;
+}
+
+.imgWrapper {
+  position: relative;
+  > div {
+    width: 16rem;
+    height: 16rem;
+    background-color: rgba(#e9c46a, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -10;
+  }
+  > img {
+    position: relative;
+    z-index: 10;
+    max-width: 40rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.textWrapper {
+  animation: fadeLeft 0.6s ease-out forwards;
+  > h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    color: #264653;
+    > span {
+      color: #2a9d8f;
+    }
+  }
+  > p {
+    color: #718096;
+    margin-bottom: 2rem;
+    max-width: 90rem;
+  }
+  > .btn {
+    background-color: #2a9d8f;
+    color: white;
+    padding-inline: 2rem;
+    padding-block: 1.1rem;
+    font-size: 1.2rem;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: #1a3331;
+    }
+  }
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

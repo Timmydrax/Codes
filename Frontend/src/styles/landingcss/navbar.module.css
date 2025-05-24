@@ -1,0 +1,60 @@
+.navbarContainer {
+  border-bottom: 1px solid rgb(226, 232, 240);
+  width: 100%;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 2rem;
+}
+
+.curamap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  > img {
+    width: 8rem;
+    height: 3rem;
+  }
+}
+.curamapTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  > a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: #2a9d8f;
+    }
+  }
+  > Button {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    > a {
+      &:hover {
+        color: black;
+      }
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+  }
+}

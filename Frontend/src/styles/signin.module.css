@@ -19,6 +19,7 @@
   padding: 3rem;
   border-radius: 10px;
   max-width: 484px;
+  max-height: 500px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -37,6 +38,10 @@
 .loginText {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.form {
+  gap: 0;
 }
 
 .inputGroup {
@@ -115,6 +120,9 @@
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+  &:hover {
+    color: #2a9d8f;
+  }
 }
 
 /* Mobile responsiveness */
