@@ -172,7 +172,7 @@ const SearchPage = ({ selectedMedicines, setSelectedMedicines }) => {
         ))}
       </div>
 
-      <footer className="submit-section">
+      <div className="submit-section">
         <button
           onClick={handleSubmit}
           className="submit-btn"
@@ -180,7 +180,7 @@ const SearchPage = ({ selectedMedicines, setSelectedMedicines }) => {
         >
           Find ({selectedMedicines.length}) Med
         </button>
-      </footer>
+      </div>
     </div>
   );
 };
